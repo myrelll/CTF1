@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flag Hidden in Headers</title>
+</head>
+<body>
+    <h1>Run this on a local server to find the flag</h1>
+    <p>Open your browser's developer tools and go to the "Network" tab to inspect the headers.</p>
+
+    <script>
+        // Simulate the request to a mock server
+        function getFlag() {
+            fetch('/fake-endpoint') // This will fail on GitHub Pages but will work if you have a local server
+                .then(response => {
+                    // The flag will be in the response headers
+                    const flag = response.headers.get('X-CTF-Flag');
+                    if (flag) {
+                        alert('Flag found in the headers! Inspect the headers in the Network tab.');
+                    }
+                })
+                .catch(error => console.error('Error fetching flag:', error));
+        }
+
+        // Automatically trigger the function when the page loads
+        window.onload = getFlag;
+    </script>
+</body>
+</html>
