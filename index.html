@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find the Hidden Clue</title>
+    <script>
+        fetch('clue.json')
+            .then(response => response.json())
+            .then(data => console.log(data.hiddenClue)); 
+    </script>
+</head>
+<body>
+    <h1>Welcome to the Challenge!</h1>
+    <p>Inspect the Network requests to find the hidden clue.</p>
+</body>
+</html>
